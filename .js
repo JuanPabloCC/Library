@@ -10,9 +10,6 @@ function Book(title, author, pages, read) {
     this.read = read;
     this.status = this.read ? "read" : "not read yet";
     this.id = crypto.randomUUID();
-    this.info = function info() {
-        console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.status}`);
-    }
 };
 
 function addToLibrary(title, author, pages, read){
