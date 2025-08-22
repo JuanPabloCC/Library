@@ -11,3 +11,10 @@ function Books(title, author, pages, read) {
         console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.status}`);
     }
 };
+
+library = [];
+
+function createBooks(title, author, pages, read){
+    let book = new Books(title, author, pages, read)
+    library.push(book);
+};
