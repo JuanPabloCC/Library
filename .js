@@ -1,4 +1,6 @@
-function Books(title, author, pages, read) {
+let library = [];
+
+function Book(title, author, pages, read) {
     if (!new.target){
         throw Error("You must use the 'new' operator to call the constructor!")
     }
@@ -13,9 +15,7 @@ function Books(title, author, pages, read) {
     }
 };
 
-library = [];
-
-function createBooks(title, author, pages, read){
-    let book = new Books(title, author, pages, read)
+function addToLibrary(title, author, pages, read){
+    let book = new Book(title, author, pages, read)
     library.push(book);
 };
