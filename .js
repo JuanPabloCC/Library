@@ -1,5 +1,3 @@
-let library = [];
-
 function Book(title, author, pages, read) {
     if (!new.target){
         throw Error("You must use the 'new' operator to call the constructor!")
@@ -17,18 +15,27 @@ function addToLibrary(title, author, pages, read){
     library.push(book);
 };
 
-let divinaComedia = new Book("La Divina Comedia", "Dante Alligheri", "500", true);
+let divinaComedia = new Book("La Divina Comedia", "Dante Alligheri", "500", false);
+let condeMontecristo = new Book("El Conde De Montecristo", "Alejandro Dumas", "1500", true);
+let viajeCentro = new Book("El Viaje Al Centro De La Tierra", "Julio Verne", "300", true);
+
+let library = new Array();
+library.push(divinaComedia, condeMontecristo, viajeCentro);
 
 function displayBooks(book) {
-    const library = document.querySelector(".library");
-    const title = book.title;
-    const author = book.author;
-    const pages = book.pages;
-    const status = book.status;
-    const bookCard = document.createElement("div");
-    const cardContent = document.createTextNode(`${title} by ${author}, ${pages} pages, ${status}`)
-    bookCard.appendChild(cardContent);
-    library.appendChild(bookCard);
+    const libraryDiv = document.querySelector(".library");
+
+    library.forEach(function(item){
+        const title = item.title;
+        const author = item.author;
+        const pages = item.pages;
+        const status = item.status;
+        const bookCard = document.createElement("div");
+        const cardContent = document.createTextNode(`${title} by ${author}, ${pages} pages, ${status}`)
+        bookCard.appendChild(cardContent);
+        libraryDiv.appendChild(bookCard);
+    });
+
 };
 
 displayBooks(divinaComedia);
