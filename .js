@@ -17,7 +17,18 @@ function addToLibrary(title, author, pages, read){
     library.push(book);
 };
 
-function displayBooks() {
-    let library = document.getElementsByClassName("library");
-    return library
+let divinaComedia = new Book("La Divina Comedia", "Dante Alligheri", "500", true);
+
+function displayBooks(book) {
+    const library = document.querySelector(".library");
+    const title = book.title;
+    const author = book.author;
+    const pages = book.pages;
+    const status = book.status;
+    const bookCard = document.createElement("div");
+    const cardContent = document.createTextNode(`${title} by ${author}, ${pages} pages, ${status}`)
+    bookCard.appendChild(cardContent);
+    library.appendChild(bookCard);
 };
+
+displayBooks(divinaComedia);
