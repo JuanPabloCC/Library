@@ -55,6 +55,8 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -62,6 +64,6 @@ body {
 
 .library {
   border: solid 5px red;
-  height: 80vh;
+  height: 60vh;
   width: 50vw;
 }
