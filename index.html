@@ -9,6 +9,31 @@
 <body>
     <button class="addBook">Add book</button>
     <div class="library"></div>
+    <dialog>
+        <form id="book-form">
+            <div>
+                <label for="book-title">Book Title:</label>
+                <input type="text" name="book-title" id="book-title" required>
+            </div>
+            <div>
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author" required>
+            </div>
+            <div>
+                <label for="pages">Pages:</label>
+                <input type="text" name="pages" id="pages" required>
+            </div>
+                <label for="read">Read</label>
+                <input type="radio" id="read" name="read-value" value="read" required>
+                <label for="not-read">Not Read</label>
+                <input type="radio" id="not-read" name="read-value" value="not read" required>
+            <div>
+                <button id="confirm-button">Confirm</button>
+                <button id="close-button">Close</button>
+            </div>
+        </form>
+
+    </dialog>
 </body>
 <script src=".js"></script>
 </html>
