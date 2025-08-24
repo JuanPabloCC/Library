@@ -58,7 +58,7 @@ confirmButton.addEventListener("click", (e) => {
     const titleInput = bookForm.elements[0];
     const authorInput = bookForm.elements[1];
     const pagesInput = bookForm.elements[2];
-    const readInput = bookForm.elements[3];
+    const readInput = document.querySelector('input[name="status"]:checked');
 
     const titleInputVal = titleInput.validity.valueMissing;
     const authorInputVal = authorInput.validity.valueMissing;
@@ -67,7 +67,7 @@ confirmButton.addEventListener("click", (e) => {
 
     if (!titleInputVal && !authorInputVal && !pagesInputVal && !readInputVal){
         e.preventDefault();
-        addToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
+        addToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.value === "1"? true : false);
         displayBooks();
         bookForm.reset();
     } else {

@@ -23,10 +23,13 @@
                 <label for="pages">Pages:</label>
                 <input type="text" name="pages" id="pages" required>
             </div>
+            <div>
+                <input type="radio" id="read" name="status" value="1" required/>
                 <label for="read">Read</label>
-                <input type="radio" id="read" name="read-value" value="read" required>
+
+                <input type="radio" id="not-read" name="status" value="2" required/>
                 <label for="not-read">Not Read</label>
-                <input type="radio" id="not-read" name="read-value" value="not read" required>
+            </div>
             <div>
                 <button id="confirm-button">Confirm</button>
                 <button id="close-button">Close</button>
