@@ -10,6 +10,11 @@ function Book(title, author, pages, read) {
     this.id = crypto.randomUUID();
 };
 
+Book.prototype.changeStatus = function() {
+    this.read ? this.read = false : this.read = true;
+    this.status === "read"? this.status = "not read yet" : this.status = "read";
+};
+
 function addToLibrary(title, author, pages, read){
     let book = new Book(title, author, pages, read)
     library.push(book);
@@ -23,9 +28,15 @@ function deleteBookCard(e) {
     bookCardToDelete.remove();
 }
 
+function changeDisplayStatus(statusButton, book) {
+    book.changeStatus();
+    console.log(book);
+    statusButton.textContent = book.status;
+};
+
 function createBookCard(book){
     const bookCard = document.createElement("div");
-    const cardContent = document.createTextNode(`${book.title} by ${book.author}, ${book.pages} pages, ${book.status}`);
+    const cardContent = document.createTextNode(`${book.title} by ${book.author}, ${book.pages} pages`);
     const deleteButton = document.createElement("button");
     const statusButton = document.createElement("button");
     bookCard.setAttribute('data-id', book.id);
@@ -33,6 +44,7 @@ function createBookCard(book){
     deleteButton.textContent = "Delete";
     deleteButton.addEventListener("click", deleteBookCard);
     statusButton.textContent = book.status;
+    statusButton.addEventListener("click", (e) => {changeDisplayStatus(e.target, book)});
     bookCard.appendChild(deleteButton);
     bookCard.appendChild(statusButton);
     return bookCard
