@@ -15,9 +15,7 @@ function addToLibrary(title, author, pages, read){
     library.push(book);
 };
 
-let library = new Array();
-
-function displayBooks(book) {
+function displayBooks() {
     const libraryDiv = document.querySelector(".library");
 
     library.forEach(function(item){
@@ -33,12 +31,12 @@ function displayBooks(book) {
 
 };
 
+let library = new Array();
 const dialog = document.querySelector("dialog");
 const addBookButton = document.querySelector(".addBook");
 const confirmButton = document.querySelector("#confirm-button");
 const closeButton = document.querySelector("#close-button");
 const bookForm = document.querySelector("#book-form");
-
 
 addBookButton.addEventListener("click", () => {
     dialog.showModal();
@@ -59,7 +57,7 @@ confirmButton.addEventListener("click", (e) => {
     if (!titleInputVal && !authorInputVal && !pagesInputVal && !readInputVal){
         e.preventDefault();
         addToLibrary(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
-        displayBooks(library);
+        displayBooks();
         bookForm.reset();
     } else {
         console.log("algo no está bien")
@@ -69,4 +67,4 @@ confirmButton.addEventListener("click", (e) => {
 closeButton.addEventListener("click", (e)=>{
     e.preventDefault();
     dialog.close();
-})
+});
