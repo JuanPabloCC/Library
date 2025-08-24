@@ -22,6 +22,9 @@ function displayBooks() {
     bookCard.setAttribute('data-id', book.id);
     const cardContent = document.createTextNode(`${book.title} by ${book.author}, ${book.pages} pages, ${book.status}`);
     bookCard.appendChild(cardContent);
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    bookCard.appendChild(deleteButton);
     libraryDiv.appendChild(bookCard);
 };
 
