@@ -15,6 +15,14 @@ function addToLibrary(title, author, pages, read){
     library.push(book);
 };
 
+function deleteBookCard(e) {
+    const bookCardToDelete = e.target.parentNode;
+    const bookCardId = bookCardToDelete.getAttribute('data-id');
+    const bookIndex = library.findIndex(item => item.id === bookCardId);
+    library.splice(bookIndex, 1);
+    bookCardToDelete.remove();
+}
+
 function createBookCard(book){
     const bookCard = document.createElement("div");
     const cardContent = document.createTextNode(`${book.title} by ${book.author}, ${book.pages} pages, ${book.status}`);
@@ -22,6 +30,7 @@ function createBookCard(book){
     bookCard.setAttribute('data-id', book.id);
     bookCard.appendChild(cardContent);
     deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", deleteBookCard);
     bookCard.appendChild(deleteButton);
     return bookCard
 };
