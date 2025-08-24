@@ -19,6 +19,7 @@ function displayBooks() {
     const libraryDiv = document.querySelector(".library");
     const book = library.at(-1);
     const bookCard = document.createElement("div");
+    bookCard.setAttribute('data-id', book.id);
     const cardContent = document.createTextNode(`${book.title} by ${book.author}, ${book.pages} pages, ${book.status}`);
     bookCard.appendChild(cardContent);
     libraryDiv.appendChild(bookCard);
