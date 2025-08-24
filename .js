@@ -30,7 +30,6 @@ function deleteBookCard(e) {
 
 function changeDisplayStatus(statusButton, book) {
     book.changeStatus();
-    console.log(book);
     statusButton.textContent = book.status;
 };
 
