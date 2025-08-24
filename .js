@@ -15,16 +15,21 @@ function addToLibrary(title, author, pages, read){
     library.push(book);
 };
 
+function createBookCard(book){
+    const bookCard = document.createElement("div");
+    const cardContent = document.createTextNode(`${book.title} by ${book.author}, ${book.pages} pages, ${book.status}`);
+    const deleteButton = document.createElement("button");
+    bookCard.setAttribute('data-id', book.id);
+    bookCard.appendChild(cardContent);
+    deleteButton.textContent = "Delete";
+    bookCard.appendChild(deleteButton);
+    return bookCard
+};
+
 function displayBooks() {
     const libraryDiv = document.querySelector(".library");
     const book = library.at(-1);
-    const bookCard = document.createElement("div");
-    bookCard.setAttribute('data-id', book.id);
-    const cardContent = document.createTextNode(`${book.title} by ${book.author}, ${book.pages} pages, ${book.status}`);
-    bookCard.appendChild(cardContent);
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    bookCard.appendChild(deleteButton);
+    const bookCard = createBookCard(book);
     libraryDiv.appendChild(bookCard);
 };
 
