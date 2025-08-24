@@ -27,11 +27,14 @@ function createBookCard(book){
     const bookCard = document.createElement("div");
     const cardContent = document.createTextNode(`${book.title} by ${book.author}, ${book.pages} pages, ${book.status}`);
     const deleteButton = document.createElement("button");
+    const statusButton = document.createElement("button");
     bookCard.setAttribute('data-id', book.id);
     bookCard.appendChild(cardContent);
     deleteButton.textContent = "Delete";
     deleteButton.addEventListener("click", deleteBookCard);
+    statusButton.textContent = book.status;
     bookCard.appendChild(deleteButton);
+    bookCard.appendChild(statusButton);
     return bookCard
 };
 
