@@ -17,18 +17,11 @@ function addToLibrary(title, author, pages, read){
 
 function displayBooks() {
     const libraryDiv = document.querySelector(".library");
-
-    library.forEach(function(item){
-        const title = item.title;
-        const author = item.author;
-        const pages = item.pages;
-        const status = item.status;
-        const bookCard = document.createElement("div");
-        const cardContent = document.createTextNode(`${title} by ${author}, ${pages} pages, ${status}`)
-        bookCard.appendChild(cardContent);
-        libraryDiv.appendChild(bookCard);
-    });
-
+    const book = library.at(-1);
+    const bookCard = document.createElement("div");
+    const cardContent = document.createTextNode(`${book.title} by ${book.author}, ${book.pages} pages, ${book.status}`);
+    bookCard.appendChild(cardContent);
+    libraryDiv.appendChild(bookCard);
 };
 
 let library = new Array();
