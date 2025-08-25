@@ -11,24 +11,26 @@
     <div class="library"></div>
     <dialog>
         <form id="book-form">
+            <h2>Add to Library!</h2>
             <div>
-                <label for="book-title">Book Title:</label>
-                <input type="text" name="book-title" id="book-title" required>
+                <input type="text" name="book-title" id="book-title" placeholder="Book Title" required>
             </div>
             <div>
-                <label for="author">Author:</label>
-                <input type="text" name="author" id="author" required>
+                <input type="text" name="author" id="author" placeholder="Author" required>
             </div>
             <div>
-                <label for="pages">Pages:</label>
-                <input type="text" name="pages" id="pages" required>
+                <input type="text" name="pages" id="pages" placeholder="Pages" required>
             </div>
-            <div>
-                <input type="radio" id="read" name="status" value="1" required/>
-                <label for="read">Read</label>
+            <div class="radio-buttons">
+                <div>
+                    <input type="radio" id="read" name="status" value="1" required/>
+                    <label for="read">Read</label>
+                </div>
 
-                <input type="radio" id="not-read" name="status" value="2" required/>
-                <label for="not-read">Not Read</label>
+                <div>
+                    <input type="radio" id="not-read" name="status" value="2" required/>
+                    <label for="not-read">Not Read Yet</label>
+                </div>
             </div>
             <div>
                 <button id="confirm-button">Confirm</button>
