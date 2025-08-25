@@ -46,6 +46,7 @@ function createBookCard(book){
     statusButton.addEventListener("click", (e) => {changeDisplayStatus(e.target, book)});
     bookCard.appendChild(deleteButton);
     bookCard.appendChild(statusButton);
+    bookCard.classList.add("bookCard");
     return bookCard
 };
 

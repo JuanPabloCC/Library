@@ -2,8 +2,10 @@
   --radius: 8px;
   --gap: 20px;
   --font-color: #606060;
-  --font-size: 1.1rem;
+  --font-size: 1.5rem;
   --main-color: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+  --main-shadow: 0 3.2px 7.2px 0 rgb(0 0 0 / 13%), 0 0.6px 1.8px 0 rgb(0 0 0 / 11%);
+  --main-font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
 }
 
 body {
@@ -14,14 +16,14 @@ body {
     align-items: center;
     height: 100vh;
     font-size: var(--font-size);
-    font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+    font-family: var(--main-font-family);
     color: var(--font-color);
 }
 
 .library {
   height: 60vh;
   width: 50vw;
-  box-shadow: 0 3.2px 7.2px 0 rgb(0 0 0 / 13%), 0 0.6px 1.8px 0 rgb(0 0 0 / 11%);
+  box-shadow: var(--main-shadow);
   border-radius: var(--radius);
 }
 
@@ -34,9 +36,8 @@ body {
 dialog {
   border: none !important;
   border-radius: var(--radius);
-  box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  padding: 1.6rem;
-  min-width: 20vw;
+  box-shadow: var(--main-shadow);
+  min-width: 25vw;
 }
 
 ::backdrop {
@@ -50,6 +51,7 @@ button {
   cursor: pointer;
   line-height: var(--gap);
   font-weight: 600;
+  font-size: calc(var(--font-size)*0.8);
   font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
   border-radius: var(--radius);
   padding: 14px 24px;
@@ -57,10 +59,6 @@ button {
   transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
   background: var(--main-color);
   color: #fff;              
-}
-
-#confirm-button, #close-button {
-  padding: 7px 12px;
 }
 
 form {
@@ -74,7 +72,16 @@ form {
 input {
   font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
   font-size: var(--font-size);
+  border-radius: var(--radius);
+  border: solid 1px var(--font-color);
+  padding: 10px;
 }
 
+.bookCard {
+  box-shadow: var(--main-shadow);
+  border-radius: var(--radius);
+  padding: var(--gap);
+  margin: var(--gap);
+}
 
 
