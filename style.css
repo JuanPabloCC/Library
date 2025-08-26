@@ -29,9 +29,10 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-  .library {
-    width: 80vw;
-  }
+  .library {width: 80vw;}
+  :root {--font-size: 1rem;}
+  button {padding: 7px 12px;}
+  .bookCard div {align-self:center;}
 }
 
 dialog {
