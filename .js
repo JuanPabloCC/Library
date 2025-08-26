@@ -21,32 +21,38 @@ function addToLibrary(title, author, pages, read){
 };
 
 function deleteBookCard(e) {
-    const bookCardToDelete = e.target.parentNode;
+    const bookCardToDelete = e.target.parentNode.parentNode;
     const bookCardId = bookCardToDelete.getAttribute('data-id');
     const bookIndex = library.findIndex(item => item.id === bookCardId);
     library.splice(bookIndex, 1);
     bookCardToDelete.remove();
 }
 
-function changeDisplayStatus(statusButton, book) {
+function changeDisplayStatus(cardBodyText, book) {
     book.changeStatus();
-    statusButton.textContent = book.status;
+    cardBodyText.textContent = `By ${book.author}, ${book.pages} pages, ${book.status}.`;
 };
 
 function createBookCard(book){
     const bookCard = document.createElement("div");
-    const cardContent = document.createTextNode(`${book.title} by ${book.author}, ${book.pages} pages`);
+    bookCard.setAttribute('data-id', book.id);
+    bookCard.classList.add("bookCard");
+    const cardTitle = document.createElement("h2");
+    cardTitle.textContent = `${book.title}`
+    const cardBodyText = document.createElement("p");
+    cardBodyText.textContent = `By ${book.author}, ${book.pages} pages, ${book.status}.`
+    bookCard.appendChild(cardTitle);
+    bookCard.appendChild(cardBodyText);
+    const buttonContainer = document.createElement("div");
     const deleteButton = document.createElement("button");
     const statusButton = document.createElement("button");
-    bookCard.setAttribute('data-id', book.id);
-    bookCard.appendChild(cardContent);
     deleteButton.textContent = "Delete";
     deleteButton.addEventListener("click", deleteBookCard);
-    statusButton.textContent = book.status;
-    statusButton.addEventListener("click", (e) => {changeDisplayStatus(e.target, book)});
-    bookCard.appendChild(deleteButton);
-    bookCard.appendChild(statusButton);
-    bookCard.classList.add("bookCard");
+    statusButton.textContent = "Change Status";
+    statusButton.addEventListener("click", () => {changeDisplayStatus(cardBodyText, book)});
+    buttonContainer.appendChild(statusButton);
+    buttonContainer.appendChild(deleteButton);
+    bookCard.appendChild(buttonContainer);
     return bookCard
 };
 

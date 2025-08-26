@@ -2,7 +2,7 @@
   --radius: 8px;
   --gap: 20px;
   --font-color: #606060;
-  --font-size: 1.5rem;
+  --font-size: 1.2rem;
   --main-color: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
   --main-shadow: 0 3.2px 7.2px 0 rgb(0 0 0 / 13%), 0 0.6px 1.8px 0 rgb(0 0 0 / 11%);
   --main-font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
@@ -21,10 +21,11 @@ body {
 }
 
 .library {
-  height: 60vh;
+  height: 70vh;
   width: 50vw;
   box-shadow: var(--main-shadow);
   border-radius: var(--radius);
+  overflow: auto;
 }
 
 @media only screen and (max-width: 600px) {
@@ -82,6 +83,18 @@ input {
   border-radius: var(--radius);
   padding: var(--gap);
   margin: var(--gap);
+  display: flex;
+  flex-direction: column;
+}
+
+.bookCard div {
+  align-self:flex-end;
+  display: flex;
+  gap: var(--gap);
+}
+
+.bookCard h2 {
+  margin: 0;
 }
 
 
